@@ -18,7 +18,8 @@ int main() {
 
     do {
         //  возвращать incorrectInput +
-        incorrectInput = inputCoeffs(&a, &b, &c);  // assert для указателей +
+        incorrectInput = inputCoeffs(&a, &b, &c);  // assert для указа
+        телей +
         if(!incorrectInput) {
             result = solveEq(a, b, c, &x1, &x2);
             outputResult(result, x1, x2);

@@ -19,7 +19,7 @@ bool inputCoeffs(double* a, double* b, double* c) {
 } // перенести в io +
 
 // output
-      // пофиксить название input +
+      // пофиксить название input
 void outputResult(SolNumber input, double x1, double x2) {
     switch (input) {
         case OneSol:

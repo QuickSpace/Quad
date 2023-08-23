@@ -3,14 +3,7 @@
 #include "solution.h"
 #include "utilities.h"
 
-struct unitStruct testArray[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
-                                 {9, 1, 8, 0, 0, NoSol},
-                                 {1, 5, 4, -1, -4, TwoSol},
-                                 {0, 0, 0, 0, 0, Infinite},
-                                 {0, 2, 4, -2, -2, OneSol},
-                                 {1, 5, 4, -40, -10, TwoSol}}; // здесь должен быть фейл
-
-int solutionTest(struct unitStruct testStruct) {
+int solutionTest(struct unitStruct testStruct) { // указатель
     double x1 = 0;
     double x2 = 0;
 
@@ -35,11 +28,18 @@ int solutionTest(struct unitStruct testStruct) {
 }
 
 int testAll() {
+    const struct unitStruct testArray[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
+                                            {9, 1, 8,    0, 0, NoSol},
+                                            {1, 5, 4,   -1, -4, TwoSol},
+                                            {0, 0, 0,    0, 0, Infinite},
+                                            {0, 2, 4,   -2, -2, OneSol},
+                                            {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
+
     int n = 0;
 
-    size_t size = sizeof(testArray)/sizeof(testArray[0]);
+    const int ELEMENTS_NUM = sizeof(testArray)/sizeof(testArray[0]);
 
-    for (unsigned int i = 0; i < size; i++) {
+    for (int i = 0; i < ELEMENTS_NUM; i++) {
         n += solutionTest(testArray[i]); // набор тестов в массиве структур
     }
 
