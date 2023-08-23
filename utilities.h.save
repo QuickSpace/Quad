@@ -1,0 +1,11 @@
+#ifndef __UTILITIES_H__
+#define __UTILITIES_H__
+
+const double eps = 0.0001;
+enum SolNumber{OneSol = 1, Infinite = 1, NoSol = 2, TwoSol = 3};
+
+bool equals(const double a, const double b);
+void clearBuffer();
+bool isZero(double a);
+
+#endif

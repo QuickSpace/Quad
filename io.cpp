@@ -1,0 +1,66 @@
+#include <TXLib.h>
+#include "utilities.h"
+#include "io.h"
+
+// input
+
+bool inputCoeffs(double* a, double* b, double* c) {
+    assert(&a != nullptr && &b != nullptr && &c != nullptr);
+    printf("Enter coefficients: ");
+
+    if (scanf("%lf%lf%lf", a, b, c) < 3)
+    {
+        printf("Incorrect input, try again!\n");
+        clearBuffer();
+        return true;
+    }
+
+    return false;
+} // перенести в io +
+
+// output
+      // пофиксить название input +
+void outputResult(SolNumber input, double x1, double x2) {
+    switch (input) {
+        case OneSol:
+            printf("x: %.2lf\n", x1);
+            break;
+        case Infinite:
+            printf("Infinitely many solutions\n");
+            break;
+        case NoSol:
+            printf("No solutions\n");
+            break;
+        // переделать enum +
+        case TwoSol:
+            printf("x1: %.2lf \nx2: %.2lf\n", x1, x2);
+            break;
+        default:
+            assert(0 && "Unknown number of roots.\n");
+            break; // assert +
+    }
+} // перенести в io +
+
+// подтверждение выхода из проги
+
+bool confirmTests() {
+    const int CONFIRM_KEY = 5;
+    int input = 0;
+
+    printf("Enter %d to run tests (anything else to just continue): ", CONFIRM_KEY);
+    scanf("%d", &input);
+    clearBuffer();
+
+    return input == CONFIRM_KEY;
+}  // перенести в io +
+
+bool confirmExit() {
+    const int CONFIRM_KEY = 4;
+    int input = 0;
+
+    printf("Enter 1 to continue (anything else to quit): ");
+    scanf("%d", &input);
+    clearBuffer();
+
+    return input == CONFIRM_KEY;
+}

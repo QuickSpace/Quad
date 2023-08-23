@@ -1,0 +1,30 @@
+#include <TXLib.h>
+#include "solution.h"
+#include "utilities.h"
+
+// перенести в отдельный файл +
+SolNumber solveEq(double a, double b, double c, double* x1, double* x2) {
+    if(isZero(a)) {  // решать линейное уравнение здесь +
+        if(isZero(b)) {
+            if(isZero(c)) return Infinite;
+            return NoSol;
+        }
+        else {
+            *x1 = *x2 = (-c/b);
+            return OneSol; // функция для решения линейного уравнения
+        }
+    }
+
+    double d = b * b - 4 * a * c;
+    if(d < 0) return NoSol;
+
+    if(isZero(d)) {
+        *x1 = *x2 = -b/(2*a);
+        return TwoSol;
+    }
+    double sqrt_d = sqrt(d);
+    *x1 = (-b + sqrt_d)/(2*a);
+    *x2 = (-b - sqrt_d)/(2*a);
+
+    return TwoSol; // cringe +
+}
