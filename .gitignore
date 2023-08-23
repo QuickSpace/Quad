@@ -5,6 +5,7 @@
 *.html
 *.bmarks
 *.cbp
+*.gitattributes
 
 bin/
 obj/
