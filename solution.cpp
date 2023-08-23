@@ -4,16 +4,8 @@
 
 // перенести в отдельный файл +
 SolNumber solveEq(double a, double b, double c, double* x1, double* x2) {
-    if(isZero(a)) {  // решать линейное уравнение здесь +
-        if(isZero(b)) {
-            if(isZero(c)) return Infinite;
-            return NoSol;
-        }
-        else {
-            *x1 = *x2 = (-c/b);
-            return OneSol; // функция для решения линейного уравнения
-        }
-    }
+    if(isZero(a))  // решать линейное уравнение здесь +
+        return solveLinear(b, c, x1, x2);
 
     double d = b * b - 4 * a * c;
     if(d < 0) return NoSol;
@@ -27,4 +19,14 @@ SolNumber solveEq(double a, double b, double c, double* x1, double* x2) {
     *x2 = (-b - sqrt_d)/(2*a);
 
     return TwoSol; // cringe +
+}
+
+SolNumber solveLinear(double b, double c, double* x1, double* x2) {
+    if (isZero(b)) {
+        if (isZero(c)) return Infinite;
+        return NoSol;
+    }
+
+    *x1 = *x2 = (-c/b);
+    return OneSol; // функция для решения линейного уравнения +
 }

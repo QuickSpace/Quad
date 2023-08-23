@@ -3,15 +3,30 @@
 #include "solution.h"
 #include "utilities.h"
 
-int solutionTest(double a, double b, double c,
-                 double x1ref, double x2ref, SolNumber nRootsRef) {
-    double x1 = 0, x2 = 0;
+struct unitStruct testArray[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
+                                 {9, 1, 8, 0, 0, NoSol},
+                                 {1, 5, 4, -1, -4, TwoSol},
+                                 {0, 0, 0, 0, 0, Infinite},
+                                 {0, 2, 4, -2, -2, OneSol},
+                                 {1, 5, 4, -40, -10, TwoSol}}; // здесь должен быть фейл
+
+int solutionTest(struct unitStruct testStruct) {
+    double x1 = 0;
+    double x2 = 0;
+
+    double a = testStruct.a;
+    double b = testStruct.b;
+    double c = testStruct.c;
+    double x1ref = testStruct.x1ref;
+    double x2ref = testStruct.x2ref;
+    SolNumber nRootsRef = testStruct.nRootsRef;
+
     SolNumber nRoots = solveEq(a, b, c, &x1, &x2);
 
-    if(!equals(x1, x1ref) || !equals(x2, x2ref) || nRoots != nRootsRef) {  // условие в одну функцию
+    if (testInputs(x1, x2, x1ref, x2ref, nRoots, nRootsRef)) {  // условие в одну функцию +
         printf("FAILED: x1: %lf, x2: %lf, # of roots: %d; \n"
                "Expected: x1ref = %lf, x2ref = %lf, # of roots: %d\n",
-            x1, x2, (int) nRoots, x1ref, x2ref, (int) nRootsRef);
+                x1, x2, (int) nRoots, x1ref, x2ref, (int) nRootsRef);
         return 0;
     }
 
@@ -21,11 +36,17 @@ int solutionTest(double a, double b, double c,
 
 int testAll() {
     int n = 0;
-    n += solutionTest(4, 4, 1, -0.5, -0.5, OneSol);
-    n += solutionTest(9, 1, 8, 0, 0, NoSol);
-    n += solutionTest(1, 5, 4, -1, -4, TwoSol);
-    n += solutionTest(0, 0, 0, 0, 0, Infinite); // набор тестов в массиве структур
-    n += solutionTest(1, 5, 4, -40, -10, TwoSol); // здесь должен быть фейл
+
+    size_t size = sizeof(testArray)/sizeof(testArray[0]);
+
+    for (unsigned int i = 0; i < size; i++) {
+        n += solutionTest(testArray[i]); // набор тестов в массиве структур
+    }
 
     return n;
+}
+
+bool testInputs(double x1, double x2, double x1ref, double x2ref,
+                SolNumber nRoots, SolNumber nRootsRef) {
+    return !equals(x1, x1ref) || !equals(x2, x2ref) || nRoots != nRootsRef;
 }

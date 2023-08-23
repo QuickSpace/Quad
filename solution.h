@@ -4,5 +4,6 @@
 #include "utilities.h"
 
 SolNumber solveEq(double a, double b, double c, double* x1, double* x2);
+SolNumber solveLinear(double b, double c, double* x1, double* x2);
 
 #endif

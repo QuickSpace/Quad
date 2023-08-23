@@ -58,7 +58,7 @@ bool confirmExit() {
     const int CONFIRM_KEY = 4;
     int input = 0;
 
-    printf("Enter 1 to continue (anything else to quit): ");
+    printf("Enter %d to continue (anything else to quit): ", CONFIRM_KEY);
     scanf("%d", &input);
     clearBuffer();
 
