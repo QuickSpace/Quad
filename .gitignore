@@ -5,5 +5,7 @@
 *.html
 *.bmarks
 *.cbp
-**/bin
-**/obj
+
+bin/
+obj/
+.git-auto/
