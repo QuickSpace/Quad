@@ -1,0 +1,8 @@
+# Compiled Object files
+*.o
+*.save
+*.depend
+*.layout
+*.html
+*.bmarks
+*.cbp
