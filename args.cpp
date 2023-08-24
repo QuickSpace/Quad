@@ -3,38 +3,37 @@
 #include "unittest.h"
 #include <unistd.h>
 
-const char arguments[] = {'t', 'h'};
+// в отдельные константы +
+const char helpCmdArg = 'h';
+const char testsCmdArg = 't';
+const char arguments[] = {helpCmdArg, testsCmdArg};
 
-void checkForArgs(int argc, char* argv[]) {
+RunOptions checkForCmdArgs(int argc, char* argv[]) { // "checkForCmdArgs", возвращать enum +
     // константы для команд +
     int currentArg = 0;
     while (currentArg != -1) {
         currentArg = getopt(argc, argv, arguments); // <- сюда добавлять команды
-        if (currentArg == arguments[0]) {
-            useArgs(Tests);
-            return;
-        }
-        if (currentArg == arguments[1]) {
-            useArgs(Help);
-            return;
-        }
+        if (currentArg == helpCmdArg) // константы писать капсом +
+            return HELP_OPT;
+        if (currentArg == testsCmdArg)
+            return TEST_OPT;
     }
 
-    useArgs(None); // в отдельную функцию и файл +
+    return SOLVE_OPT; // в отдельную функцию и файл +
 }
 
-void useArgs(ArgsType argType) {
-    switch (argType) {
-        case Tests:
+void runApp(RunOptions runOption) { // "runApp" +
+    switch (runOption) {
+        case TEST_OPT:  // "TEST_OPT" +
             printf("Number of successful tests: %d\n", runAllTests());
             break;
-        case Help:
+        case HELP_OPT:  // "HELP" +
             printf("Quadratic equation solver.\n"
                 "Options: \n"
                 "\t -%c - running tests\n"
                 "\t -%c - print help\n", arguments[0], arguments[1]);
             break;
-        case None:
+        case SOLVE_OPT: // "SOLVE_OPT" +
             printf("Description: A program designed to solve quadratic equations\n");
             break;
         default:

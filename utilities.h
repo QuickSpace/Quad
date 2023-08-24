@@ -5,7 +5,7 @@ enum RootsNum {
     NoSol = 0,
     OneSol = 1,
     TwoSol = 2,
-    Infinite = 3
+    InfiniteSol = 3 // "InfiniteSol" +
 };
 
 bool equals(const double a, const double b);

@@ -33,19 +33,19 @@ int runAllTests() {
     const UnitTest tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
                              {9, 1, 8,    0, 0, NoSol},
                              {1, 5, 4,   -1, -4, TwoSol},
-                             {0, 0, 0,    0, 0, Infinite},
+                             {0, 0, 0,    0, 0, InfiniteSol},
                              {0, 2, 4,   -2, -2, OneSol},
                              {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
 
-    int successNum = 0;
+    int successTestsNum = 0;
 
-    const int ELEMENTS_NUM = sizeof(tests)/sizeof(tests[0]);
+    const int TESTS_NUM = sizeof(tests)/sizeof(tests[0]);
 
-    for (int i = 0; i < ELEMENTS_NUM; i++) {
-        successNum += runTest(&tests[i]); // набор тестов в массиве структур +
+    for (int i = 0; i < TESTS_NUM; i++) {
+        successTestsNum += runTest(&tests[i]); // набор тестов в массиве структур +
     }
 
-    return successNum;
+    return successTestsNum;
 }
 
 bool checkValues(double x1, double x2, double x1req, double x2req,

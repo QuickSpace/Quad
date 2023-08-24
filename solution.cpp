@@ -31,7 +31,7 @@ RootsNum solveLinear(double b, double c, double* x1, double* x2) {
 
     if (isZero(b)) {
         if (isZero(c))
-            return Infinite;
+            return InfiniteSol;
         return NoSol;
     }
 

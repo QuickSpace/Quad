@@ -14,16 +14,19 @@ int main(int argc, char* argv[]) {
     bool incorrectInput = false;
     RootsNum rootsNumber = OneSol;
 
-    checkForArgs(argc, argv);
+    RunOptions runOption = checkForCmdArgs(argc, argv);
+    runApp(runOption);
 
-    do {
-        //  возвращать incorrectInput +
-        incorrectInput = readCoeffs(&a, &b, &c);  // assert для указателей +
-        if(!incorrectInput) {
-            rootsNumber = solveSquare(a, b, c, &x1, &x2);
-            printRoots(rootsNumber, &x1, &x2);
-        }
-    } while (declineExit());
+    if (runOption == SOLVE_OPT) {
+        do { // не решать уравнение при Help/Test +
+            //  возвращать incorrectInput +
+            incorrectInput = readCoeffs(&a, &b, &c);  // assert для указателей +
+            if(!incorrectInput) {
+                rootsNumber = solveSquare(a, b, c, &x1, &x2);
+                printRoots(rootsNumber, &x1, &x2);
+            }
+        } while (declineExit());
+    }
 
     return 0;
 }

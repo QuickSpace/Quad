@@ -31,7 +31,7 @@ void printRoots(RootsNum eqType, double* x1, double* x2) {
         case OneSol:
             printf("x: %.2lf\n", *x1);
             break;
-        case Infinite:
+        case InfiniteSol:
             printf("Infinitely many solutions\n");
             break;
         case NoSol:
@@ -49,6 +49,7 @@ void printRoots(RootsNum eqType, double* x1, double* x2) {
 
 // подтверждение выхода из проги
 
+// поменять местами действия в declineExit()
 bool declineExit() { // переименовать функцию +
     const char CONFIRM_KEY = 'q'; // q +
     char input = 0;

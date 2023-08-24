@@ -1,13 +1,13 @@
 #ifndef __ARGS_H__
 #define __ARGS_H__
 
-enum ArgsType {
-    Tests,
-    Help,
-    None
+enum RunOptions {
+    TEST_OPT,
+    HELP_OPT,
+    SOLVE_OPT
 };
 
-void checkForArgs(int argc, char* argv[]);
-void useArgs(ArgsType argType);
+RunOptions checkForCmdArgs(int argc, char* argv[]);
+void runApp(RunOptions argType);
 
 #endif
