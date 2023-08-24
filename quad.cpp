@@ -11,18 +11,17 @@ int main() {
     double x1 = 0;
     double x2 = 0;
     bool incorrectInput = false;
-    SolNumber result = OneSol;
+    EqType equationType = OneSol;
 
     if (confirmTests())
-        printf("Number of successful tests: %d\n", testAll());
+        printf("Number of successful tests: %d\n", runAllTests());
 
     do {
         //  возвращать incorrectInput +
-        incorrectInput = inputCoeffs(&a, &b, &c);  // assert для указа
-        телей +
+        incorrectInput = readCoeffs(&a, &b, &c);  // assert для указателей +
         if(!incorrectInput) {
-            result = solveEq(a, b, c, &x1, &x2);
-            outputResult(result, x1, x2);
+            equationType = solveEq(a, b, c, &x1, &x2);
+            printRoots(equationType, &x1, &x2);
         }
     } while (confirmExit());
 

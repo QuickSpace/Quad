@@ -3,7 +3,7 @@
 
 #include "utilities.h"
 
-struct unitStruct {
+struct unitTestRef {
     double a;
     double b;
     double c;
@@ -12,10 +12,10 @@ struct unitStruct {
     SolNumber nRootsRef;
 };
 
-bool testInputs(double x1, double x2, double x1ref, double x2ref,
-                SolNumber nRoots, SolNumber nRootsRef);
+bool compareValues(double x1, double x2, double x1ref, double x2ref,
+                EqType nRoots, EqType nRootsRef);
 
-int solutionTest(struct unitStruct testStruct);
+int runTest(struct unitTestRef* valuesTest);
 
 int testAll();
 

@@ -4,8 +4,10 @@
 
 // input
 
-bool inputCoeffs(double* a, double* b, double* c) {
-    assert(&a != nullptr && &b != nullptr && &c != nullptr);
+bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asserts
+    assert(a != nullptr)
+    assert(b != nullptr)
+    assert(c != nullptr);
     printf("Enter coefficients: ");
 
     if (scanf("%lf%lf%lf", a, b, c) < 3)
@@ -20,10 +22,12 @@ bool inputCoeffs(double* a, double* b, double* c) {
 
 // output
       // пофиксить название input
-void outputResult(SolNumber input, double x1, double x2) {
-    switch (input) {
+void printRoots(EqType eqType, double* x1, double* x2) {
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
+    switch (eqType) {
         case OneSol:
-            printf("x: %.2lf\n", x1);
+            printf("x: %.2lf\n", *x1);
             break;
         case Infinite:
             printf("Infinitely many solutions\n");
@@ -33,10 +37,10 @@ void outputResult(SolNumber input, double x1, double x2) {
             break;
         // переделать enum +
         case TwoSol:
-            printf("x1: %.2lf \nx2: %.2lf\n", x1, x2);
+            printf("x1: %.2lf \nx2: %.2lf\n", *x1, *x2);
             break;
         default:
-            assert(0 && "Unknown number of roots.\n");
+            assert(0 && "Unknown number of roots\n");
             break; // assert +
     }
 } // перенести в io +

@@ -3,7 +3,9 @@
 #include "utilities.h"
 
 // перенести в отдельный файл +
-SolNumber solveEq(double a, double b, double c, double* x1, double* x2) {
+EqType solveEq(double a, double b, double c, double* x1, double* x2) {
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
     if(isZero(a))  // решать линейное уравнение здесь +
         return solveLinear(b, c, x1, x2);
 
@@ -21,7 +23,9 @@ SolNumber solveEq(double a, double b, double c, double* x1, double* x2) {
     return TwoSol; // cringe +
 }
 
-SolNumber solveLinear(double b, double c, double* x1, double* x2) {
+EqType solveLinear(double b, double c, double* x1, double* x2) {
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
     if (isZero(b)) {
         if (isZero(c)) return Infinite;
         return NoSol;
