@@ -47,17 +47,6 @@ void printRoots(EqType eqType, double* x1, double* x2) {
 
 // подтверждение выхода из проги
 
-bool confirmTests() {
-    const int CONFIRM_KEY = 5;
-    int input = 0;
-
-    printf("Enter %d to run tests (anything else to just continue): ", CONFIRM_KEY);
-    scanf("%d", &input);
-    clearBuffer();
-
-    return input == CONFIRM_KEY;
-}  // перенести в io +
-
 bool confirmExit() {
     const int CONFIRM_KEY = 4;
     int input = 0;
@@ -67,4 +56,4 @@ bool confirmExit() {
     clearBuffer();
 
     return input == CONFIRM_KEY;
-}
+}   // перенести в io +
