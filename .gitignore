@@ -6,6 +6,7 @@
 *.bmarks
 *.cbp
 *.gitattributes
+*.exe
 
 bin/
 obj/

@@ -3,19 +3,19 @@
 
 #include "utilities.h"
 
-struct unitTestRef {
+struct UnitTest {
     double a;
     double b;
     double c;
-    double x1ref;
-    double x2ref;
-    EqType nRootsRef;
+    double x1req;
+    double x2req;
+    RootsNum nRootsReq;
 };
 
-bool compareValues(double x1, double x2, double x1ref, double x2ref,
-                EqType nRoots, EqType nRootsRef);
+bool checkValues(double x1, double x2, double x1req, double x2req,
+                RootsNum nRoots, RootsNum nRootsReq);
 
-int runTest(struct unitTestRef* valuesTest);
+int runTest(const UnitTest* valuesTest);
 
 int runAllTests();
 

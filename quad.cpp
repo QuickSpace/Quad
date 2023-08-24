@@ -1,9 +1,9 @@
 #include <TXLib.h>
-#include <unistd.h>
 #include "io.h"
 #include "utilities.h"
 #include "solution.h"
 #include "unittest.h"
+#include "args.h"
 
 int main(int argc, char* argv[]) {
     double a = 0;
@@ -12,24 +12,18 @@ int main(int argc, char* argv[]) {
     double x1 = 0;
     double x2 = 0;
     bool incorrectInput = false;
-    EqType equationType = OneSol;
+    RootsNum rootsNumber = OneSol;
 
-    int currentArg = 0;
-    while (currentArg != -1) {
-        currentArg = getopt(argc, argv, "t"); // <- сюда добавлять команды
-
-        if(currentArg == 't')
-            printf("Number of successful tests: %d\n", runAllTests());
-    }
+    checkForArgs(argc, argv);
 
     do {
         //  возвращать incorrectInput +
         incorrectInput = readCoeffs(&a, &b, &c);  // assert для указателей +
         if(!incorrectInput) {
-            equationType = solveEq(a, b, c, &x1, &x2);
-            printRoots(equationType, &x1, &x2);
+            rootsNumber = solveSquare(a, b, c, &x1, &x2);
+            printRoots(rootsNumber, &x1, &x2);
         }
-    } while (confirmExit());
+    } while (declineExit());
 
     return 0;
 }

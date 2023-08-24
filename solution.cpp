@@ -3,14 +3,16 @@
 #include "utilities.h"
 
 // перенести в отдельный файл +
-EqType solveEq(double a, double b, double c, double* x1, double* x2) {
+RootsNum solveSquare(double a, double b, double c, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
+
     if(isZero(a))  // решать линейное уравнение здесь +
         return solveLinear(b, c, x1, x2);
 
     double d = b * b - 4 * a * c;
-    if(d < 0) return NoSol;
+    if(d < 0)
+        return NoSol;
 
     if(isZero(d)) {
         *x1 = *x2 = -b/(2*a);
@@ -23,11 +25,13 @@ EqType solveEq(double a, double b, double c, double* x1, double* x2) {
     return TwoSol; // cringe +
 }
 
-EqType solveLinear(double b, double c, double* x1, double* x2) {
+RootsNum solveLinear(double b, double c, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
+
     if (isZero(b)) {
-        if (isZero(c)) return Infinite;
+        if (isZero(c))
+            return Infinite;
         return NoSol;
     }
 

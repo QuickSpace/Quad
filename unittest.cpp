@@ -3,24 +3,25 @@
 #include "solution.h"
 #include "utilities.h"
 
-int runTest(unitTestRef* valuesTest) { // указатель
+int runTest(const UnitTest* valuesTest) { // указатель +
     assert(valuesTest != nullptr);
+
     double x1 = 0;
     double x2 = 0;
 
     double a = valuesTest -> a;
     double b = valuesTest -> b;
     double c = valuesTest -> c;
-    double x1ref = valuesTest -> x1ref;
-    double x2ref = valuesTest -> x2ref;
-    EqType nRootsRef = valuesTest -> nRootsRef;
+    double x1req = valuesTest -> x1req;
+    double x2req = valuesTest -> x2req;
+    RootsNum nRootsReq = valuesTest -> nRootsReq;
 
-    EqType nRoots = solveEq(a, b, c, &x1, &x2);
+    RootsNum nRoots = solveSquare(a, b, c, &x1, &x2);
 
-    if (compareValues(x1, x2, x1ref, x2ref, nRoots, nRootsRef)) {  // условие в одну функцию +
+    if (checkValues(x1, x2, x1req, x2req, nRoots, nRootsReq)) {  // условие в одну функцию +
         printf("FAILED: x1: %lf, x2: %lf, # of roots: %d; \n"
-               "Expected: x1ref = %lf, x2ref = %lf, # of roots: %d\n",
-                x1, x2, (int) nRoots, x1ref, x2ref, (int) nRootsRef);
+               "Expected: x1req = %lf, x2req = %lf, # of roots: %d\n",
+                x1, x2, (int) nRoots, x1req, x2req, (int) nRootsReq);
         return 0;
     }
 
@@ -29,25 +30,25 @@ int runTest(unitTestRef* valuesTest) { // указатель
 }
 
 int runAllTests() {
-    unitTestRef tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
-                                {9, 1, 8,    0, 0, NoSol},
-                                {1, 5, 4,   -1, -4, TwoSol},
-                                {0, 0, 0,    0, 0, Infinite},
-                                {0, 2, 4,   -2, -2, OneSol},
-                                {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
+    const UnitTest tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
+                             {9, 1, 8,    0, 0, NoSol},
+                             {1, 5, 4,   -1, -4, TwoSol},
+                             {0, 0, 0,    0, 0, Infinite},
+                             {0, 2, 4,   -2, -2, OneSol},
+                             {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
 
-    int n = 0;
+    int successNum = 0;
 
     const int ELEMENTS_NUM = sizeof(tests)/sizeof(tests[0]);
 
     for (int i = 0; i < ELEMENTS_NUM; i++) {
-        n += runTest(&tests[i]); // набор тестов в массиве структур +
+        successNum += runTest(&tests[i]); // набор тестов в массиве структур +
     }
 
-    return n;
+    return successNum;
 }
 
-bool compareValues(double x1, double x2, double x1ref, double x2ref,
-                EqType nRoots, EqType nRootsRef) {
-    return !equals(x1, x1ref) || !equals(x2, x2ref) || nRoots != nRootsRef;
+bool checkValues(double x1, double x2, double x1req, double x2req,
+                RootsNum nRoots, RootsNum nRootsReq) {
+    return !equals(x1, x1req) || !equals(x2, x2req) || nRoots != nRootsReq;
 }

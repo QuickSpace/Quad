@@ -8,6 +8,7 @@ bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asser
     assert(a != nullptr);
     assert(b != nullptr);
     assert(c != nullptr);
+
     printf("Enter coefficients: ");
 
     if (scanf("%lf%lf%lf", a, b, c) < 3)
@@ -22,9 +23,10 @@ bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asser
 
 // output
       // пофиксить название input
-void printRoots(EqType eqType, double* x1, double* x2) {
+void printRoots(RootsNum eqType, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
+
     switch (eqType) {
         case OneSol:
             printf("x: %.2lf\n", *x1);
@@ -47,12 +49,12 @@ void printRoots(EqType eqType, double* x1, double* x2) {
 
 // подтверждение выхода из проги
 
-bool confirmExit() {
-    const int CONFIRM_KEY = 4;
-    int input = 0;
+bool declineExit() { // переименовать функцию +
+    const char CONFIRM_KEY = 'q'; // q +
+    char input = 0;
 
-    printf("Enter %d to continue (anything else to quit): ", CONFIRM_KEY);
-    scanf("%d", &input);
+    printf("Enter %c to continue (anything else to quit): ", CONFIRM_KEY);
+    scanf(" %c", &input);
     clearBuffer();
 
     return input == CONFIRM_KEY;

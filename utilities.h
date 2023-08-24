@@ -1,7 +1,7 @@
 #ifndef __UTILITIES_H__
 #define __UTILITIES_H__
 
-enum EqType {
+enum RootsNum {
     NoSol = 0,
     OneSol = 1,
     TwoSol = 2,

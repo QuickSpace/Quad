@@ -3,7 +3,7 @@
 
 #include "utilities.h"
 
-EqType solveEq(double a, double b, double c, double* x1, double* x2);
-EqType solveLinear(double b, double c, double* x1, double* x2);
+RootsNum solveSquare(double a, double b, double c, double* x1, double* x2);
+RootsNum solveLinear(double b, double c, double* x1, double* x2);
 
 #endif
