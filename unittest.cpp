@@ -3,17 +3,17 @@
 #include "solution.h"
 #include "utilities.h"
 
-int runTest(struct unitTestRef* valuesTest) { // указатель
-    assert(unitTestRef != nullptr);
+int runTest(unitTestRef* valuesTest) { // указатель
+    assert(valuesTest != nullptr);
     double x1 = 0;
     double x2 = 0;
 
-    double a = *valuesTest.a;
-    double b = *valuesTest.b;
-    double c = *valuesTest.c;
-    double x1ref = *valuesTest.x1ref;
-    double x2ref = *valuesTest.x2ref;
-    EqType nRootsRef = *valuesTest.nRootsRef;
+    double a = valuesTest -> a;
+    double b = valuesTest -> b;
+    double c = valuesTest -> c;
+    double x1ref = valuesTest -> x1ref;
+    double x2ref = valuesTest -> x2ref;
+    EqType nRootsRef = valuesTest -> nRootsRef;
 
     EqType nRoots = solveEq(a, b, c, &x1, &x2);
 
@@ -29,12 +29,12 @@ int runTest(struct unitTestRef* valuesTest) { // указатель
 }
 
 int runAllTests() {
-    const struct unitTestRef tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
-                                            {9, 1, 8,    0, 0, NoSol},
-                                            {1, 5, 4,   -1, -4, TwoSol},
-                                            {0, 0, 0,    0, 0, Infinite},
-                                            {0, 2, 4,   -2, -2, OneSol},
-                                            {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
+    unitTestRef tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
+                                {9, 1, 8,    0, 0, NoSol},
+                                {1, 5, 4,   -1, -4, TwoSol},
+                                {0, 0, 0,    0, 0, Infinite},
+                                {0, 2, 4,   -2, -2, OneSol},
+                                {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
 
     int n = 0;
 

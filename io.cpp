@@ -5,8 +5,8 @@
 // input
 
 bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asserts
-    assert(a != nullptr)
-    assert(b != nullptr)
+    assert(a != nullptr);
+    assert(b != nullptr);
     assert(c != nullptr);
     printf("Enter coefficients: ");
 

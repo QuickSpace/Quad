@@ -9,7 +9,7 @@ struct unitTestRef {
     double c;
     double x1ref;
     double x2ref;
-    SolNumber nRootsRef;
+    EqType nRootsRef;
 };
 
 bool compareValues(double x1, double x2, double x1ref, double x2ref,
@@ -17,6 +17,6 @@ bool compareValues(double x1, double x2, double x1ref, double x2ref,
 
 int runTest(struct unitTestRef* valuesTest);
 
-int testAll();
+int runAllTests();
 
 #endif
