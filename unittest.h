@@ -17,6 +17,6 @@ bool checkValues(double x1, double x2, double x1req, double x2req,
 
 int runTest(const UnitTest* valuesTest);
 
-int runAllTests();
+int runAllTests(UnitTest tests[], int testsNum);
 
 #endif

@@ -23,15 +23,19 @@ RunOptions checkForCmdArgs(int argc, char* argv[]) { // "checkForCmdArgs", возвр
 }
 
 void runApp(RunOptions runOption) { // "runApp" +
+    UnitTest* testsPointer;
+    int testsNum = 0;
     switch (runOption) {
         case TEST_OPT:  // "TEST_OPT" +
-            printf("Number of successful tests: %d\n", runAllTests());
+            testsPointer = getTestsFromFile(&testsNum);
+            printf("Number of successful tests: %d\n", runAllTests(testsPointer, testsNum));
+            free(testsPointer);
             break;
         case HELP_OPT:  // "HELP" +
             printf("Quadratic equation solver.\n"
                 "Options: \n"
                 "\t -%c - running tests\n"
-                "\t -%c - print help\n", arguments[0], arguments[1]);
+                "\t -%c - print help\n", testsCmdArg, helpCmdArg);
             break;
         case SOLVE_OPT: // "SOLVE_OPT" +
             printf("Description: A program designed to solve quadratic equations\n");

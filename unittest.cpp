@@ -29,19 +29,11 @@ int runTest(const UnitTest* valuesTest) { // указатель +
     return 1;
 }
 
-int runAllTests() {
-    const UnitTest tests[] = {{4, 4, 1, -0.5, -0.5, TwoSol},
-                             {9, 1, 8,    0, 0, NoSol},
-                             {1, 5, 4,   -1, -4, TwoSol},
-                             {0, 0, 0,    0, 0, InfiniteSol},
-                             {0, 2, 4,   -2, -2, OneSol},
-                             {1, 5, 4,  -40, -10, TwoSol}}; // здесь должен быть фейл
+int runAllTests(UnitTest tests[], int testsNum) {
 
     int successTestsNum = 0;
 
-    const int TESTS_NUM = sizeof(tests)/sizeof(tests[0]);
-
-    for (int i = 0; i < TESTS_NUM; i++) {
+    for (int i = 0; i < testsNum; i++) {
         successTestsNum += runTest(&tests[i]); // набор тестов в массиве структур +
     }
 

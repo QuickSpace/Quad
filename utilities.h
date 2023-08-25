@@ -1,6 +1,8 @@
 #ifndef __UTILITIES_H__
 #define __UTILITIES_H__
 
+#include "stdio.h"
+
 enum RootsNum {
     NoSol = 0,
     OneSol = 1,
