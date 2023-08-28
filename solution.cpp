@@ -31,7 +31,8 @@ RootsNum solveLinear(double b, double c, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
 
-    return isZero(c) ? InfiniteSol : NoSol;
+    if(isZero(b))
+        return isZero(c) ? InfiniteSol : NoSol;
 
     *x1 = *x2 = (-c/b);
 

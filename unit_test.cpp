@@ -28,6 +28,6 @@ void runTest(const UnitTest* valuesTest, int* testsNum) {
     else
     {
         printf("Successful\n");
-        *testsNum++;
+        *testsNum += 1;
     }
 }
