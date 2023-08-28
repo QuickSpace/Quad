@@ -16,9 +16,9 @@ struct UnitTest {
 /**
   * @brief Run a unit-test
   * @param Pointer to a structure containing values for a single test
-  * @param Pointer to a variable that tracks the number of successful tests
+  * @return 1 if test succeeded, 0 if failed
   */
-void runTest(const UnitTest* valuesTest, int* testsNum);
+int runTest(const UnitTest* valuesTest);
 
 #endif
 

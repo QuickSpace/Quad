@@ -6,17 +6,20 @@
 #include "args.h"
 #include <unistd.h>
 
-const char helpCmdArg = 'h';
-const char testsCmdArg = 't';
-const char arguments[] = {helpCmdArg, testsCmdArg};
+const char HELP_CMD_ARG = 'h';
+const char TESTS_CMD_ARG = 't';
+
+const char ARG_REQ = ':';
+
+const char CMD_ARGS[] = {HELP_CMD_ARG, TESTS_CMD_ARG, ARG_REQ};
 
 RunOptions checkForCmdArgs(int argc, char* argv[]) {
     int currentArg = 0;
     while (currentArg != -1) {
-        currentArg = getopt(argc, argv, arguments);
-        if (currentArg == helpCmdArg)
+        currentArg = getopt(argc, argv, CMD_ARGS);
+        if (currentArg == HELP_CMD_ARG)
             return HELP_OPT;
-        if (currentArg == testsCmdArg)
+        if (currentArg == TESTS_CMD_ARG)
             return TEST_OPT;
     }
 
@@ -28,18 +31,13 @@ void runApplication(RunOptions runOption) {
         case TEST_OPT:
         {
             int testsNum = 0;
-            const char* fileName = "tests.txt";
-            switch((OpenFileStatus) getTestsFromFile(&testsNum, fileName)) {
-                case FILE_OPEN_SUCCESS:
-                    printf("Successfully opened %s\n", fileName);
-                    break;
-                case FILE_OPEN_ERROR:
-                    printf("Unable to open %s\n", fileName);
-                    break;
-                default:
-                    assert(0 && "Unknown opening file status!\n");
-                    break;
-            }
+            const char* defaultDir = "tests/tests.txt";
+
+            if(optarg != NULL)
+                testsNum = runTestsFromFile(optarg);
+            else
+                testsNum = runTestsFromFile(defaultDir);
+
             printf("Number of successful tests: %d\n", testsNum);
             break;
         }
@@ -47,7 +45,8 @@ void runApplication(RunOptions runOption) {
             printf("Quadratic equation solver.\n"
                 "Options: \n"
                 "\t -%c - running tests\n"
-                "\t -%c - print help\n", testsCmdArg, helpCmdArg);
+                "\t -%c - print help\n",
+                TESTS_CMD_ARG, HELP_CMD_ARG);
             break;
         case SOLVE_OPT:
         {
@@ -62,7 +61,6 @@ void runApplication(RunOptions runOption) {
             RootsNum rootsNumber = OneSol;
 
             do {
-
                 incorrectInput = readCoeffs(&a, &b, &c);
                 if(!incorrectInput) {
                     rootsNumber = solveSquare(a, b, c, &x1, &x2);

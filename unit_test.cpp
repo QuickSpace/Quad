@@ -3,7 +3,7 @@
 #include "solution.h"
 #include "utilities.h"
 
-void runTest(const UnitTest* valuesTest, int* testsNum) {
+int runTest(const UnitTest* valuesTest) {
     assert(valuesTest != nullptr);
 
     double x1 = 0;
@@ -19,15 +19,17 @@ void runTest(const UnitTest* valuesTest, int* testsNum) {
     RootsNum nRoots = solveSquare(a, b, c, &x1, &x2);
 
     if (!equals(x1, x1req) ||
-        !equals(x2, x2req) || nRoots != nRootsReq)
+        !equals(x2, x2req) ||
+        nRoots != nRootsReq)
     {
         printf("FAILED: x1: %lf, x2: %lf, # of roots: %d; \n"
                "Expected: x1req = %lf, x2req = %lf, # of roots: %d\n",
                 x1, x2, nRoots, x1req, x2req, (int) nRootsReq);
+        return 0;
     }
     else
     {
         printf("Successful\n");
-        *testsNum += 1;
+        return 1;
     }
 }

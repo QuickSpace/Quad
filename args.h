@@ -1,7 +1,7 @@
 #ifndef __ARGS_H__
 #define __ARGS_H__
 
-#include "read_data.h"
+#include "run_tests.h"
 
 /*! Enum specifying all possible options to run a program*/
 enum RunOptions {

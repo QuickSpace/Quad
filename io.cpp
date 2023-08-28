@@ -1,4 +1,5 @@
 #include <TXLib.h>
+#include <math.h>
 #include "utilities.h"
 #include "io.h"
 
@@ -16,12 +17,15 @@ bool readCoeffs(double* a, double* b, double* c) {
         return true;
     }
 
+    clearBuffer();
     return false;
 }
 
 void printRoots(RootsNum rootsNum, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
+    assert(isfinite(*x1) != 0);
+    assert(isfinite(*x2) != 0);
 
     switch (rootsNum) {
         case OneSol:

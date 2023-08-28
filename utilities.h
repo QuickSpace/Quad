@@ -13,16 +13,16 @@ enum RootsNum {
 
 
 /**
-  * @brief Check whether a and b is equal or not
+  * @brief Check whether a and b are equal or not
   * @param a - first number
   * @param b - second number
   * @return result of comparison
   */
 
-bool equals(const double a, const double b);
+bool equals(double a, double b);
 
 /**
-  * @brief Clear the buffer of the input-output stream
+  * @brief Clear the buffer of the input stream
   */
 
 void clearBuffer();
