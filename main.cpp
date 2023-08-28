@@ -5,8 +5,6 @@
 #include "unit_test.h"
 #include "args.h"
 
-// "main.cpp" +
-
 int main(int argc, char* argv[]) {
     RunOptions runOption = checkForCmdArgs(argc, argv);
     runApplication(runOption);

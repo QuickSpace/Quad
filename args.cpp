@@ -14,18 +14,18 @@ RunOptions checkForCmdArgs(int argc, char* argv[]) {
     int currentArg = 0;
     while (currentArg != -1) {
         currentArg = getopt(argc, argv, arguments);
-        if (currentArg == helpCmdArg) // константы писать капсом +
+        if (currentArg == helpCmdArg)
             return HELP_OPT;
         if (currentArg == testsCmdArg)
             return TEST_OPT;
     }
 
-    return SOLVE_OPT; // в отдельную функцию и файл +
+    return SOLVE_OPT;
 }
 
-void runApplication(RunOptions runOption) { // "runApp" +
+void runApplication(RunOptions runOption) {
     switch (runOption) {
-        case TEST_OPT:  // "TEST_OPT" +
+        case TEST_OPT:
         {
             int testsNum = 0;
             const char* fileName = "tests.txt";
@@ -43,13 +43,13 @@ void runApplication(RunOptions runOption) { // "runApp" +
             printf("Number of successful tests: %d\n", testsNum);
             break;
         }
-        case HELP_OPT:  // "HELP" +
+        case HELP_OPT:
             printf("Quadratic equation solver.\n"
                 "Options: \n"
                 "\t -%c - running tests\n"
                 "\t -%c - print help\n", testsCmdArg, helpCmdArg);
             break;
-        case SOLVE_OPT: // "SOLVE_OPT" +
+        case SOLVE_OPT:
         {
             printf("Description: A program designed to solve quadratic equations\n");
 
@@ -61,9 +61,9 @@ void runApplication(RunOptions runOption) { // "runApp" +
             bool incorrectInput = false;
             RootsNum rootsNumber = OneSol;
 
-            do { // не решать уравнение при Help/Test +
-                //  возвращать incorrectInput +
-                incorrectInput = readCoeffs(&a, &b, &c);  // assert для указателей +
+            do {
+
+                incorrectInput = readCoeffs(&a, &b, &c);
                 if(!incorrectInput) {
                     rootsNumber = solveSquare(a, b, c, &x1, &x2);
                     printRoots(rootsNumber, &x1, &x2);

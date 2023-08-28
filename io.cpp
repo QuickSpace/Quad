@@ -2,9 +2,7 @@
 #include "utilities.h"
 #include "io.h"
 
-// input
-
-bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asserts +
+bool readCoeffs(double* a, double* b, double* c) {
     assert(a != nullptr);
     assert(b != nullptr);
     assert(c != nullptr);
@@ -19,10 +17,8 @@ bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asser
     }
 
     return false;
-} // перенести в io +
+}
 
-// output
-      // пофиксить название input +
 void printRoots(RootsNum rootsNum, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
@@ -37,21 +33,17 @@ void printRoots(RootsNum rootsNum, double* x1, double* x2) {
         case NoSol:
             printf("No solutions\n");
             break;
-        // переделать enum +
         case TwoSol:
             printf("x1: %.2lf \nx2: %.2lf\n", *x1, *x2);
             break;
         default:
             assert(0 && "Unknown number of roots\n");
-            break; // assert +
+            break;
     }
-} // перенести в io +
+}
 
-// подтверждение выхода из проги
-
-// поменять местами действия в declineExit() +
-bool declineExit() { // переименовать функцию +
-    const char CONFIRM_KEY = 'q'; // q +
+bool declineExit() {
+    const char CONFIRM_KEY = 'q';
     char input = 0;
 
     printf("Enter %c to quit (anything else to continue): ", CONFIRM_KEY);
@@ -59,4 +51,4 @@ bool declineExit() { // переименовать функцию +
     clearBuffer();
 
     return input != CONFIRM_KEY;
-}   // перенести в io +
+}
