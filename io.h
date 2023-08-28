@@ -3,18 +3,26 @@
 
 #include "utilities.h"
 
-// input
-
+/**
+  * @brief Reads the user's input of all coefficients
+  * @param a - first coefficient
+  * @param b - second coefficient
+  * @param c - third coefficient
+  * @return false only if the input is in the correct format
+  */
 bool readCoeffs(double* a, double* b, double* c);
 
-// output
+/**
+  * @brief Outputs all roots of an equation
+  * @param Number of roots of the equation
+  * @param x1, x2 - pointers to roots' variables
+  */
+void printRoots(RootsNum rootsNum, double* x1, double* x2);
 
-void printRoots(RootsNum eqType, double* x1, double* x2);   // поменять название функции +
-    // юнит-тесты в отдельном модуле +
-    // условие для выполнения юнит-тестов +
-
-// подтверждение выхода из проги
-
+/**
+  * @brief Ask a user to exit the program
+  * @return true only if the user refuses to quit
+  */
 bool declineExit();
 
 #endif

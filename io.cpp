@@ -22,12 +22,12 @@ bool readCoeffs(double* a, double* b, double* c) { // разбить на несколько asser
 } // перенести в io +
 
 // output
-      // пофиксить название input
-void printRoots(RootsNum eqType, double* x1, double* x2) {
+      // пофиксить название input +
+void printRoots(RootsNum rootsNum, double* x1, double* x2) {
     assert(x1 != nullptr);
     assert(x2 != nullptr);
 
-    switch (eqType) {
+    switch (rootsNum) {
         case OneSol:
             printf("x: %.2lf\n", *x1);
             break;
