@@ -31,49 +31,54 @@ RunOptions checkForCmdArgs(int argc, char* argv[]) {
 void runApplication(RunOptions runOption) {
     switch (runOption) {
         case TEST_OPT:
-        {
-            const char* DEFAULT_PATH = "tests/tests.txt";
-            const char* DEFAULT_PATH_ARG = "default";
-
-            if (optarg == NULL || strcmp(optarg, DEFAULT_PATH_ARG) == 0)
-                runTestsFromFile(DEFAULT_PATH);
-            else
-                runTestsFromFile(optarg);
-
-            break;
-        }
+            runTestMode();
         case HELP_OPT:
-            printf("Quadratic equation solver.\n"
-                   "Options: \n"
-                   "\t -%c - running tests\n"
-                   "\t -%c - print help\n",
-                   TESTS_CMD_ARG,
-                   HELP_CMD_ARG);
+            runHelpMode();
             break;
         case SOLVE_OPT:
-        {
-            printf("Description: A program designed to solve quadratic equations\n");
-
-            double a = 0;
-            double b = 0;
-            double c = 0;
-            double x1 = 0;
-            double x2 = 0;
-            bool incorrectInput = false;
-            RootsNum rootsNumber = ONE_SOL;
-
-            do {
-                incorrectInput = readCoeffs(&a, &b, &c);
-                if(!incorrectInput) {
-                    rootsNumber = solveSquare(a, b, c, &x1, &x2);
-                    printRoots(rootsNumber, &x1, &x2);
-                }
-            } while (!confirmExit());
-
+            runSolveMode();
             break;
-        }
         default:
             assert(!"Unknown argument!");
             break;
     }
+}
+
+void runTestMode() {
+    const char* DEFAULT_PATH = "tests/tests.txt";
+    const char* DEFAULT_PATH_ARG = "default";
+
+    if (optarg == NULL || strcmp(optarg, DEFAULT_PATH_ARG) == 0)
+        runTestsFromFile(DEFAULT_PATH);
+    else
+        runTestsFromFile(optarg);
+}
+
+void runHelpMode() {
+    printf("Quadratic equation solver.\n"
+           "Options: \n"
+           "\t -%c - running tests (path should be specified)\n"
+           "\t -%c - print help\n",
+               TESTS_CMD_ARG,
+               HELP_CMD_ARG);
+}
+
+void runSolveMode() {
+    printf("Description: A program designed to solve quadratic equations\n");
+
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    double x1 = 0;
+    double x2 = 0;
+    bool incorrectInput = false;
+    RootsNum rootsNumber = ONE_SOL;
+
+    do {
+        incorrectInput = readCoeffs(&a, &b, &c);
+        if(!incorrectInput) {
+            rootsNumber = solveSquare(a, b, c, &x1, &x2);
+            printRoots(rootsNumber, &x1, &x2);
+        }
+    } while (!confirmExit());
 }

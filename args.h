@@ -24,4 +24,19 @@ RunOptions checkForCmdArgs(int argc, char* argv[]);
   */
 void runApplication(RunOptions runOption);
 
+/**
+  * @brief Run all unit-tests
+  */
+void runTestMode();
+
+/**
+  * @brief Display all command-line options
+  */
+void runHelpMode();
+
+/**
+  * @brief Run the program normally
+  */
+void runSolveMode();
+
 #endif
