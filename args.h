@@ -11,10 +11,10 @@ enum RunOptions {
 };
 
 /**
-  * @brief Checks. for command-line arguments
+  * @brief Checks for command-line arguments
   * @param argc Number of command-line arguments
   * @param argv[] Array of all command-line arguments
-  * @returns Option which the program should be ran in.
+  * @return Option which the program should be ran in
   */
 RunOptions checkForCmdArgs(int argc, char* argv[]);
 

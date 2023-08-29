@@ -6,12 +6,11 @@
 #include "unit_test.h"
 #include "args.h"
 
-const char HELP_CMD_ARG = 'h';
-const char TESTS_CMD_ARG = 't';
+static const char HELP_CMD_ARG = 'h';
+static const char TESTS_CMD_ARG = 't';
+static const char ARG_REQ = ':';
 
-const char ARG_REQ = ':';
-
-const char CMD_ARGS[] = {HELP_CMD_ARG, TESTS_CMD_ARG, ARG_REQ};
+static char CMD_ARGS[] = {HELP_CMD_ARG, TESTS_CMD_ARG, ARG_REQ};
 
 RunOptions checkForCmdArgs(int argc, char* argv[]) {
     assert(argv != nullptr);
@@ -45,10 +44,11 @@ void runApplication(RunOptions runOption) {
         }
         case HELP_OPT:
             printf("Quadratic equation solver.\n"
-                "Options: \n"
-                "\t -%c - running tests\n"
-                "\t -%c - print help\n",
-                TESTS_CMD_ARG, HELP_CMD_ARG);
+                   "Options: \n"
+                   "\t -%c - running tests\n"
+                   "\t -%c - print help\n",
+                   TESTS_CMD_ARG,
+                   HELP_CMD_ARG);
             break;
         case SOLVE_OPT:
         {
@@ -60,7 +60,7 @@ void runApplication(RunOptions runOption) {
             double x1 = 0;
             double x2 = 0;
             bool incorrectInput = false;
-            RootsNum rootsNumber = OneSol;
+            RootsNum rootsNumber = ONE_SOL;
 
             do {
                 incorrectInput = readCoeffs(&a, &b, &c);
@@ -68,12 +68,12 @@ void runApplication(RunOptions runOption) {
                     rootsNumber = solveSquare(a, b, c, &x1, &x2);
                     printRoots(rootsNumber, &x1, &x2);
                 }
-            } while (declineExit());
+            } while (!confirmExit());
 
             break;
         }
         default:
-            assert(0 && "Unknown argument!");
+            assert(!"Unknown argument!");
             break;
     }
 }

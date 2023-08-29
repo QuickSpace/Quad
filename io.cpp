@@ -28,16 +28,16 @@ void printRoots(RootsNum rootsNum, double* x1, double* x2) {
     assert(isfinite(*x2) != 0);
 
     switch (rootsNum) {
-        case OneSol:
+        case ONE_SOL:
             printf("x: %.2lf\n", *x1);
             break;
-        case InfiniteSol:
+        case INFINITE_SOL:
             printf("Infinitely many solutions\n");
             break;
-        case NoSol:
+        case NO_SOL:
             printf("No solutions\n");
             break;
-        case TwoSol:
+        case TWO_SOL:
             printf("x1: %.2lf \nx2: %.2lf\n", *x1, *x2);
             break;
         default:
@@ -46,7 +46,7 @@ void printRoots(RootsNum rootsNum, double* x1, double* x2) {
     }
 }
 
-bool declineExit() {
+bool confirmExit() {
     const char CONFIRM_KEY = 'q';
     char input = 0;
 
@@ -54,5 +54,5 @@ bool declineExit() {
     scanf(" %c", &input);
     clearBuffer();
 
-    return input != CONFIRM_KEY;
+    return input == CONFIRM_KEY;
 }

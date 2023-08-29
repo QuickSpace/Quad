@@ -11,5 +11,7 @@ bool isZero(double a) {
 }
 
 void clearBuffer() {
-    while (getchar() != '\n') {}
+    int currentChar = getchar();
+    while (currentChar != '\n' && currentChar != EOF)
+        currentChar = getchar();
 }

@@ -8,7 +8,7 @@
   * @param a First coefficient.
   * @param b Second coefficient.
   * @param c Third coefficient.
-  * @returns False only if the input is in the correct format.
+  * @return False only if the input is in the correct format.
   */
 bool readCoeffs(double* a, double* b, double* c);
 
@@ -22,8 +22,9 @@ void printRoots(RootsNum rootsNum, double* x1, double* x2);
 
 /**
   * @brief Ask a user to exit the program.
-  * @returns True only if the user refuses to quit.
+  * @return True only if the user refuses to quit.
   */
-bool declineExit();
+
+bool confirmExit();
 
 #endif

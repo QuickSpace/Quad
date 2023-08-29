@@ -7,8 +7,10 @@ void runTestsFromFile(const char* fileName) {
 
     FILE* filePointer = fopen(fileName, "r");
 
-    if (filePointer == NULL)
+    if (filePointer == NULL) {
         printf("Unable to open %s\n", fileName);
+        return;
+    }
 
     printf("Successfully opened %s\n", fileName);
 
@@ -17,7 +19,7 @@ void runTestsFromFile(const char* fileName) {
     int rootsAmount = 0;
     int successCount = 0;
 
-    UnitTest currentTest = {0, 0, 0, 0, 0, NoSol};
+    UnitTest currentTest = {0, 0, 0, 0, 0, NO_SOL};
 
     for(int i = 0; i < testsAmount; i++) {
         fscanf(filePointer, "%lf %lf %lf %lf %lf %d", &currentTest.a, &currentTest.b,
@@ -35,13 +37,13 @@ int getTestsAmount(FILE* filePointer) {
 
     const int FIELD_AMOUNT = 6;
     double scannedValue = 0;
-    int testsAmount = 0;
+    int valuesCount = 0;
 
     while(!feof(filePointer)) {
         fscanf(filePointer, "%lf", &scannedValue);
-        testsAmount++;
+        valuesCount++;
     }
     fseek(filePointer, 0, SEEK_SET);
 
-    return testsAmount/FIELD_AMOUNT;
+    return valuesCount/FIELD_AMOUNT;
 }

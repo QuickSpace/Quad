@@ -5,10 +5,10 @@
 
 /*! Enum specifying the number of roots of a quadratic equation*/
 enum RootsNum {
-    NoSol = 0, /*!< No solutions*/
-    OneSol = 1, /*!< One solution, used for linear equations*/
-    TwoSol = 2, /*!< Two solutions*/
-    InfiniteSol = 3 /*!< Infinitely many solutions*/
+    NO_SOL = 0, /*!< No solutions*/
+    ONE_SOL = 1, /*!< One solution, used for linear equations*/
+    TWO_SOL = 2, /*!< Two solutions*/
+    INFINITE_SOL = 3 /*!< Infinitely many solutions*/
 };
 
 
@@ -16,7 +16,7 @@ enum RootsNum {
   * @brief Check whether a and b are equal or not
   * @param a First number
   * @param b Second number
-  * @returns Result of comparison
+  * @return Result of comparison
   */
 
 bool equals(double a, double b);
@@ -30,7 +30,7 @@ void clearBuffer();
 /**
   * @brief Check whether a is equal to 0 or not
   * @param a Number to compare 0 to
-  * @returns Result of comparison
+  * @return Result of comparison
   */
 
 bool isZero(double a);

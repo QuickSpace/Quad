@@ -24,7 +24,7 @@ int runTest(const UnitTest* valuesTest) {
     {
         printf("FAILED: x1: %lf, x2: %lf, # of roots: %d; \n"
                "Expected: x1req = %lf, x2req = %lf, # of roots: %d\n",
-                x1, x2, nRoots, x1req, x2req, (int) nRootsReq);
+                x1, x2, nRoots, x1req, x2req, nRootsReq);
         return 0;
     }
     else
