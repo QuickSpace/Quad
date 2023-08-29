@@ -3,7 +3,7 @@
 
 ### How to setup the program?
 * Get the TXLib library from [http://storage.ded32.net.ru/Lib/TX/TXUpdate/Doc/HTML.ru/](http://storage.ded32.net.ru/Lib/TX/TXUpdate/Doc/HTML.ru/)
-Download all files listed in this repository and run compile.bat
+* Download all files listed in this repository and run `compile.bat`
 
 ### Command-line arguments
 * `-h` — get the description for all command-line options
