@@ -2,7 +2,7 @@
 #include "run_tests.h"
 #include "utilities.h"
 
-int runTestsFromFile(const char* fileName) {
+void runTestsFromFile(const char* fileName) {
     assert(fileName != nullptr);
 
     FILE* filePointer = fopen(fileName, "r");
@@ -29,7 +29,7 @@ int runTestsFromFile(const char* fileName) {
     }
 
     fclose(filePointer);
-    return successCount;
+    printf("Number of successful tests: %d\n", successCount);
 }
 
 int getTestsAmount(FILE* filePointer) {

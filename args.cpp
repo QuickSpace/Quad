@@ -1,10 +1,10 @@
 #include <TXLib.h>
+#include <unistd.h>
 #include "io.h"
 #include "utilities.h"
 #include "solution.h"
 #include "unit_test.h"
 #include "args.h"
-#include <unistd.h>
 
 const char HELP_CMD_ARG = 'h';
 const char TESTS_CMD_ARG = 't';
@@ -14,7 +14,10 @@ const char ARG_REQ = ':';
 const char CMD_ARGS[] = {HELP_CMD_ARG, TESTS_CMD_ARG, ARG_REQ};
 
 RunOptions checkForCmdArgs(int argc, char* argv[]) {
+    assert(argv != nullptr);
+
     int currentArg = 0;
+
     while (currentArg != -1) {
         currentArg = getopt(argc, argv, CMD_ARGS);
         if (currentArg == HELP_CMD_ARG)
@@ -30,15 +33,14 @@ void runApplication(RunOptions runOption) {
     switch (runOption) {
         case TEST_OPT:
         {
-            int testsNum = 0;
-            const char* defaultPath = "tests/tests.txt";
+            const char* DEFAULT_PATH = "tests/tests.txt";
+            const char* DEFAULT_PATH_ARG = "default";
 
-            if(optarg == NULL || strcmp(optarg, "default") == 0)
-                testsNum = runTestsFromFile(defaultPath);
+            if (optarg == NULL || strcmp(optarg, DEFAULT_PATH_ARG) == 0)
+                runTestsFromFile(DEFAULT_PATH);
             else
-                testsNum = runTestsFromFile(optarg);
+                runTestsFromFile(optarg);
 
-            printf("Number of successful tests: %d\n", testsNum);
             break;
         }
         case HELP_OPT:

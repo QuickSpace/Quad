@@ -9,7 +9,7 @@
   * @param fileName Name of a file that should be opened
   * @returns Number of successful tests
   */
-int runTestsFromFile(const char* fileName);
+void runTestsFromFile(const char* fileName);
 
 /**
   * @brief Get the amount of all individual unit-tests
