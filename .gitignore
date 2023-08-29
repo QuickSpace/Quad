@@ -11,3 +11,5 @@
 bin/
 obj/
 .git-auto/
+html/
+latex/
