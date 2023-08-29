@@ -14,9 +14,9 @@ enum RootsNum {
 
 /**
   * @brief Check whether a and b are equal or not
-  * @param a - first number
-  * @param b - second number
-  * @return result of comparison
+  * @param a First number
+  * @param b Second number
+  * @returns Result of comparison
   */
 
 bool equals(double a, double b);
@@ -29,8 +29,8 @@ void clearBuffer();
 
 /**
   * @brief Check whether a is equal to 0 or not
-  * @param a - number to compare 0 to
-  * @return result of comparison
+  * @param a Number to compare 0 to
+  * @returns Result of comparison
   */
 
 bool isZero(double a);

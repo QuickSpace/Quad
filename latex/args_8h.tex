@@ -1,0 +1,79 @@
+\doxysection{args.\+h File Reference}
+\hypertarget{args_8h}{}\label{args_8h}\index{args.h@{args.h}}
+{\ttfamily \#include "{}run\+\_\+tests.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}} \{ \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca45d8df3be94eb61f659dbd687aabd71c}{TEST\+\_\+\+OPT}}
+, \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca0c043055e7f35c34a1ab59bb505a5962}{HELP\+\_\+\+OPT}}
+, \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbcac1506efdd76fa8fb532321817ebdc9a4}{SOLVE\+\_\+\+OPT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}} \mbox{\hyperlink{args_8h_a9eba03c4186cce3efb14eaaec2470e3c}{check\+For\+Cmd\+Args}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Check for command-\/line arguments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{args_8h_a82f5bd81f27d8dcd18d45d657c143d9f}{run\+Application}} (\mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}} arg\+Type)
+\begin{DoxyCompactList}\small\item\em Run the application depending on the specified option. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}\label{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc} 
+\index{args.h@{args.h}!RunOptions@{RunOptions}}
+\index{RunOptions@{RunOptions}!args.h@{args.h}}
+\doxysubsubsection{\texorpdfstring{RunOptions}{RunOptions}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}}}
+
+Enum specifying all possible options to run a program \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_OPT@{TEST\_OPT}!args.h@{args.h}}\index{args.h@{args.h}!TEST\_OPT@{TEST\_OPT}}}\Hypertarget{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca45d8df3be94eb61f659dbd687aabd71c}\label{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca45d8df3be94eb61f659dbd687aabd71c} 
+TEST\+\_\+\+OPT&Run unit-\/tests \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HELP\_OPT@{HELP\_OPT}!args.h@{args.h}}\index{args.h@{args.h}!HELP\_OPT@{HELP\_OPT}}}\Hypertarget{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca0c043055e7f35c34a1ab59bb505a5962}\label{args_8h_ad72c30daef2292ddcba5352bb3b9bdbca0c043055e7f35c34a1ab59bb505a5962} 
+HELP\+\_\+\+OPT&Describe all possible command-\/line arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SOLVE\_OPT@{SOLVE\_OPT}!args.h@{args.h}}\index{args.h@{args.h}!SOLVE\_OPT@{SOLVE\_OPT}}}\Hypertarget{args_8h_ad72c30daef2292ddcba5352bb3b9bdbcac1506efdd76fa8fb532321817ebdc9a4}\label{args_8h_ad72c30daef2292ddcba5352bb3b9bdbcac1506efdd76fa8fb532321817ebdc9a4} 
+SOLVE\+\_\+\+OPT&Run the program normally \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{args_8h_a9eba03c4186cce3efb14eaaec2470e3c}\label{args_8h_a9eba03c4186cce3efb14eaaec2470e3c} 
+\index{args.h@{args.h}!checkForCmdArgs@{checkForCmdArgs}}
+\index{checkForCmdArgs@{checkForCmdArgs}!args.h@{args.h}}
+\doxysubsubsection{\texorpdfstring{checkForCmdArgs()}{checkForCmdArgs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}} check\+For\+Cmd\+Args (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Check for command-\/line arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments \\
+\hline
+{\em argv} & Array of all command-\/line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Option which the program should be ran in 
+\end{DoxyReturn}
+\Hypertarget{args_8h_a82f5bd81f27d8dcd18d45d657c143d9f}\label{args_8h_a82f5bd81f27d8dcd18d45d657c143d9f} 
+\index{args.h@{args.h}!runApplication@{runApplication}}
+\index{runApplication@{runApplication}!args.h@{args.h}}
+\doxysubsubsection{\texorpdfstring{runApplication()}{runApplication()}}
+{\footnotesize\ttfamily void run\+Application (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{args_8h_ad72c30daef2292ddcba5352bb3b9bdbc}{Run\+Options}}}]{arg\+Type }\end{DoxyParamCaption})}
+
+
+
+Run the application depending on the specified option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg\+Type} & Option which the program should be ran in \\
+\hline
+\end{DoxyParams}

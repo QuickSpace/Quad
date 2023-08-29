@@ -2,7 +2,6 @@
 #include "run_tests.h"
 #include "utilities.h"
 
-// написать Readme
 int runTestsFromFile(const char* fileName) {
     assert(fileName != nullptr);
 

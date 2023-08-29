@@ -12,13 +12,15 @@ enum RunOptions {
 
 /**
   * @brief Check for command-line arguments
-  * @return Option which the program should be ran in
+  * @param argc Number of command-line arguments
+  * @param argv[] Array of all command-line arguments
+  * @returns Option which the program should be ran in
   */
 RunOptions checkForCmdArgs(int argc, char* argv[]);
 
 /**
   * @brief Run the application depending on the specified option
-  * @param Option which the program should be ran in
+  * @param argType Option which the program should be ran in
   */
 void runApplication(RunOptions argType);
 
