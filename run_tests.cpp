@@ -7,10 +7,8 @@ void runTestsFromFile(const char* fileName) {
 
     FILE* filePointer = fopen(fileName, "r");
 
-    if (filePointer == NULL) {
+    if (filePointer == NULL)
         printf("Unable to open %s\n", fileName);
-        return 0;
-    }
 
     printf("Successfully opened %s\n", fileName);
 
