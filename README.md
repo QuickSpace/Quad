@@ -21,7 +21,6 @@ The program can be run in multiple modes (specified by command-line arguments):
 * `-h` — get the description for all command-line options, the program's output will be something like:
   
   ```
-    Quadratic equation solver.
   Options:
            -t - running tests
            -h - print help
