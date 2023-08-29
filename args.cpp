@@ -31,12 +31,12 @@ void runApplication(RunOptions runOption) {
         case TEST_OPT:
         {
             int testsNum = 0;
-            const char* defaultDir = "tests/tests.txt";
+            const char* defaultPath = "tests/tests.txt";
 
-            if(optarg != NULL)
-                testsNum = runTestsFromFile(optarg);
+            if(optarg == NULL || strcmp(optarg, "default") == 0)
+                testsNum = runTestsFromFile(defaultPath);
             else
-                testsNum = runTestsFromFile(defaultDir);
+                testsNum = runTestsFromFile(optarg);
 
             printf("Number of successful tests: %d\n", testsNum);
             break;
