@@ -26,22 +26,13 @@ The program can be run in multiple modes (specified by command-line arguments):
            -h - print help
     ```
 * `-t <path>` — use the specified file to perform unit-tests (you can specify `default` as an argument to use the following default file: `./tests/tests.txt`):
-  <p align='left'>
-    <img src="./media/tests_usage_example.png" alt="drawing" width="500"/>
-  </p>
 * You don't have to specify any arguments to run this program in the default mode. This program can only comprehend the following input format:
    
   ```
   %d %d %d
   ```
-  This means that, for example, the following will work:
+  <p align='left'>
+    <img src="./media/solution_example.png" alt="drawing" width="500"/>
+  </p>
   
-  ```
-  8 9.7 -17.0
-  ```
-  And this won't:
-  
-  ```
-  8.1 abcd -1
-  ```
   If the input format is incorrect, you can retry entering your coefficients after declining the exit prompt.
