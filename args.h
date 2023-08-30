@@ -19,12 +19,6 @@ enum RunOptions {
 RunOptions checkForCmdArgs(int argc, char* argv[]);
 
 /**
-  * @brief Run the application depending on the specified option
-  * @param runOption Option which the program should be ran in
-  */
-void runApplication(RunOptions runOption);
-
-/**
   * @brief Run all unit-tests
   */
 void runTestMode();

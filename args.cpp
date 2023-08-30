@@ -28,22 +28,6 @@ RunOptions checkForCmdArgs(int argc, char* argv[]) {
     return SOLVE_OPT;
 }
 
-void runApplication(RunOptions runOption) {
-    switch (runOption) {
-        case TEST_OPT:
-            runTestMode();
-        case HELP_OPT:
-            runHelpMode();
-            break;
-        case SOLVE_OPT:
-            runSolveMode();
-            break;
-        default:
-            assert(!"Unknown argument!");
-            break;
-    }
-}
-
 void runTestMode() {
     const char* DEFAULT_PATH = "tests/tests.txt";
     const char* DEFAULT_PATH_ARG = "default";
